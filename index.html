@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For "NAME" ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtext {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        button {
+            background: #fff;
+            color: #ff4f7b;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .loader {
+            width: 100%;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #fff, #ffd1dc);
+            animation: load 3s forwards;
+        }
+
+        @keyframes load {
+            to {
+                width: 100%;
+            }
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .signature {
+            margin-top: 15px;
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Happy Valentine’s Day, "NAME" ❤️</h1>
+        <div class="subtext">
+            A tiny calculation just for you 💕
+        </div>
+
+        <button id="loveBtn">
+            Click here to see how much your soulmate loves you
+        </button>
+
+        <div class="loader" id="loader">
+            <div class="progress"></div>
+        </div>
+
+        <div class="result" id="result">
+            ❌ <strong>Error!!</strong><br><br>
+            "NAME", your soulmate loves you <strong>infinity ♾️</strong><br>
+            Cannot be calculated 💖
+            <div class="signature">
+                Forever yours,<br>
+                "NAME" ❤️
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById("loveBtn");
+        const loader = document.getElementById("loader");
+        const result = document.getElementById("result");
+
+        btn.addEventListener("click", () => {
+            btn.style.display = "none";
+            loader.style.display = "block";
+
+            setTimeout(() => {
+                loader.style.display = "none";
+                result.style.display = "block";
+            }, 3000);
+        });
+
+        // Floating hearts
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+            document.body.appendChild(heart);
+        }
+    </script>
+
+</body>
+</html>
